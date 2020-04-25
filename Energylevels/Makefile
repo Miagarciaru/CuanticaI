@@ -1,4 +1,4 @@
-all: Energylevels.x Energy.txt Energy.pdf
+all: Energylevels.x Energy.txt Energy.png
 
 Energylevels.x: energylevels.cpp
 	g++ -fsanitize=undefined -fsanitize=address energylevels.cpp -o Energylevels.x
@@ -6,8 +6,8 @@ Energylevels.x: energylevels.cpp
 Energy.txt: Energylevels.x
 	./Energylevels.x > Energy.txt
 
-Energy.pdf: Energy.txt plotfigure.gp
+Energy.png: Energy.txt plotfigure.gp
 	gnuplot plotfigure.gp
 
 clean:
-	-rm -f Energylevels.x Energy.txt Energy.pdf *~ *#
+	-rm -f Energylevels.x Energy.txt Energy.png *~ *#

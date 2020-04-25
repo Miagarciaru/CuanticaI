@@ -27,7 +27,7 @@ int main ()
 	{
 	  for (int kk=1; kk<=2; kk++)
 	    {
-	      E[conteo]=energy_level (ii, jj, kk);
+	      E[conteo]=energy_corrected (ii, jj, kk);
 	      conteo++;
 	    }
 	}
@@ -35,7 +35,7 @@ int main ()
 
   for (double x=0.0; x<=5; x+=dx)
     {
-      std::cout<<x<<"\t"<<E[0]<<"\t"<<E[1]<<"\t"<<E[2]<<"\t"<<E[3]<<"\t"<<E[4]<<"\t"<<E[5]<<"\t"<<E[6]<<"\t"<<E[7]<<"\n";
+      std::cout<<x<<"\t"<<E[0]<<"\t"<<E[1]<<"\t"<<E[2]<<"\t"<<E[4]<<"\t"<<E[3]<<"\t"<<E[5]<<"\t"<<E[6]<<"\t"<<E[7]<<"\n";
     }
   return 0;
 }
@@ -49,5 +49,7 @@ double energy_level (int n1, int n2, int n3)
 
 double energy_corrected (int n1, int n2, int n3)
 {
-  return 0;
+  double Energy=0.0;
+  Energy = energy_level (n1, n2, n3)*1e14;
+  return Energy;
 }

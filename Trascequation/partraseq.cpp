@@ -8,8 +8,7 @@ double const hb = 1.054571818;
 
 //Constantes del problema:
 double const L = 0.25; //Unidades en Amstrongs
-double const a = 0.5; //Unidades en Amstrongs
-double const m = 9.1; //Carga del electrón e-31kg
+double const a = 100.0; //Unidades en Amstrongs
 double const U = 24.0; //Energía en MeV
 
 int const Npasos=1000;
@@ -23,31 +22,33 @@ int main ()
   std::cout.setf(std::ios::scientific);
 
   double E=0.0; //Energía en MeV
-  double dE=0.1;
-  double k=0.0;
-  double beta=sqrt((2*m*U)/(10*hb*hb))*pow(10, 4);
-  
-  for (int ii=0; ii<=Npasos; ii++)
+  double dE=0.0001;
+  double k=sqrt(E);
+  double beta=sqrt(1-E);
+ 
+  while (E<1)
     {
-      std::cout<<eqtan(k)<<"\t"<<eqtanh(beta)<<"\n";
+      std::cout<<E<<"\t"<<eqtan(E)<<"\t"<<eqtanh(E)<<"\n";
       E+=dE;
-      k=sqrt(((2*m*E)*10)/hb)*pow(10, -5);
-      beta=sqrt((2*m*(U-E))/(10*hb*hb))*pow(10, 4);
+      k=sqrt(E);
+      beta=sqrt(1-E);
     }
   return 0;
   
 }
 
-double  eqtan (double k)
+double  eqtan (double E)
 {
   double eq1=0.0;
-  eq1=(1.0/k)*(tan((k/2.0)*(L-a)));
+  double rE=sqrt(E);
+  eq1=-(1.0/rE)*tan((a*rE)/2);
   return eq1;
 }
 
-double eqtanh (double beta)
+double eqtanh (double E)
 {
   double eq2=0.0;
-  eq2=(1.0/beta)*(tanh((beta*L)/2.0));
+  double u=sqrt(1-E);
+  eq2=(1.0/u)*tanh((u*a)/4);
   return eq2;
 }

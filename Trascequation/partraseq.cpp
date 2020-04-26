@@ -7,8 +7,8 @@
 double const hb = 1.0;
 
 //Constantes del problema:
-double const L = 0.5; //Unidades en Amstrongs
-double const a = 1.0; //Unidades en Amstrongs
+double const L = 5.0; //Unidades en Amstrongs
+double const a = 12.0; //Unidades en Amstrongs
 double const U = 25.0; //Energía en MeV
 double const m = 1.0; //Masas del electron
 
@@ -21,7 +21,7 @@ int main ()
   std::cout.setf(std::ios::scientific);
 
   double E=0.05; //Energía en MeV
-  double dE=0.05;
+  double dE=0.0005;
   double eps=1.0;
   
   while (E<U)

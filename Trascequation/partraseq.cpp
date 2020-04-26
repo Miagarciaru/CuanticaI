@@ -4,15 +4,15 @@
 #include <cmath>
 
 //Constantantes físicas:
-double const hb = 1.0;
+double const hb = 6.582119624e-16;
 
 //Constantes del problema:
-double const L = 5.0; //Unidades en Amstrongs
-double const a = 12.0; //Unidades en Amstrongs
-double const U = 25.0; //Energía en MeV
-double const m = 1.0; //Masas del electron
+double const L = 5.0e-12; //Unidades en Amstrongs
+double const a = 12.0e-12; //Unidades en Amstrongs
+double const U = 25.0e6; //Energía en MeV
+double const m = 9.1e-13; //Masas del electron
 
-double  eqtan (double k);
+double eqtan (double k);
 double eqtanh (double beta);
 
 int main ()
@@ -20,8 +20,8 @@ int main ()
   std::cout.precision(10);
   std::cout.setf(std::ios::scientific);
 
-  double E=0.05; //Energía en MeV
-  double dE=0.0005;
+  double E=0.05e6; //Energía en MeV
+  double dE=0.0005e6;
   double eps=1.0;
   
   while (E<U)

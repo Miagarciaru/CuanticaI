@@ -26,7 +26,7 @@ int main ()
   
   while (E<U)
     {
-      std::cout<<E<<"\t"<<eqtan(E)<<"\t"<<eqtanh(E)<<"\n";
+      std::cout<<(E*1e-6)<<"\t"<<eqtan(E)<<"\t"<<eqtanh(E)<<"\n";
       E+=dE;
       eps=eqtan(E)-eqtanh(E);
     }

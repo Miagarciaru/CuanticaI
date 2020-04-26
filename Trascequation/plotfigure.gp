@@ -1,7 +1,7 @@
 set term pngcairo size 1280, 960	
 set out 'postraseq.png'
 set key box
-set xlabel 'Energia' font "Arial, 16"
+set xlabel 'Energia (MeV)' font "Arial, 16"
 set ylabel 'Ecuaciones trascendentales' font "Arial, 16"
 set yrange [-1e-6:1e-6]
 set key width 1 #Deja un espacio para el título dentro de la caja
